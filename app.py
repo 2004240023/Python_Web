@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import request
 from flask import render_template
+from flask import jsonify
 
 app = Flask(__name__)
 @app.route('/')
@@ -33,4 +34,13 @@ def answer_html():
     result = request.args.get("my_name")
     return render_template('answer.html',name=result)
 
-
+@app.route('/try_rest',methods=['POST'])
+def try_rest():
+    #リクエストデータをJSONとして受け取る
+    request_json = request.get_json()
+    print(request_json)
+    print(type(request_json))
+    name = request_json['name']
+    print(name)
+    response_json = {"response_json":request_json}
+    return jsonify(response_json)

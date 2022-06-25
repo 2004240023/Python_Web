@@ -4,7 +4,8 @@ from flask import render_template
 from flask import jsonify
 from flask_sqlalchemy import SQLAlchemy
 from test_model import Person
-
+from test_model import Human
+from sqlalchemy import or_
 
 app = Flask(__name__)
 
@@ -64,3 +65,15 @@ def person_result():
     search_size = request.args.get("search_size")
     persons = db.session.query(Person).filter(Person.size > search_size)
     return render_template('./person_result.html', persons=persons, search_size=search_size)
+
+
+@app.route('/human_search')
+def human_search():
+    return render_template('./human_search.html')
+
+@app.route('/human_result')
+def human_result():
+    search_height = request.args.get("search_height")
+    search_weight = request.args.get("search_weight")
+    humans = db.session.query(Human).filter(or_(Human.height >= search_height,Human.weight >= search_weight))
+    return render_template('./human_result.html', humans=humans, search_height=search_height,search_weight=search_weight)

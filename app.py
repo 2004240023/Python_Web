@@ -77,3 +77,14 @@ def human_result():
     search_weight = request.args.get("search_weight")
     humans = db.session.query(Human).filter(or_(Human.height >= search_height,Human.weight >= search_weight))
     return render_template('./human_result.html', humans=humans, search_height=search_height,search_weight=search_weight)
+
+@app.route('/try_html')
+def try_html():
+    return render_template('/try_html.html')
+
+@app.route('/show_data',methods=["GET","POST"])
+def show_data():
+    name = request.form.get("name")
+    age = request.form.get("age")
+    return render_template('show_data.html',name=name,age=age)
+

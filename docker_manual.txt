@@ -44,3 +44,53 @@ REPOSITORY      TAG       IMAGE ID       CREATED          SIZE
 webapp-docker   latest    59d04425adc1   23 minutes ago   133MB
 
 #--- ↑先ほど作成したdockerイメージ→webapp-docker
+
+#---時間がなくて詳細画面(省略)
+■Dockerイメージにタグを付ける
+・docker tag webapp-docker:latest webapp-docker:v1.0.0
+■タグの付いたDockerイメージを削除する
+・docker rmi webapp-docker:v1.0.0
+■作成したDockerイメージでコンテナを立ち上げてみる
+・docker run webapp-docker
+■WSL2のコンソールをもう一つ立ち上げてcurlコマンドでアクセスしてみる
+・curl 127.0.0.1:5000
+・→接続を拒否されましたといわれて失敗する
+■コントロール+Cで停止させて、--publishフラグでポートを公開して再度、コンテナを立ち上げる
+・docker run --publish 8000:5000 webapp-docker
+★--publishフラグ
+■--publish (ホストポート):(コンテナポート)
+・curlコマンドでポートに8000を指定してcurlコマンドを実行してみる
+■curl 127.0.0.1:8000 
+・→ レスポンスが返却されることを確認する
+■コントロール+Cで停止させてバックグラウンドでコンテナを起動させる（デタッチモード）
+・docker run -d -p 8000:5000 webapp-docker
+■再度別コンソールのcurlで8000番ポートにアクセスしてレスポンスが返却されることを確認する
+・curl 127.0.0.1:8000
+・ → レスポンスが返却されることを確認する
+■Dockerコンテナの状態を確認する
+・docker ps
+■Dockerコンテナを停止させる
+・docker stop gallant_neumann　
+■→最後の「gallant neumann」はdocker ps のNAMES欄に表示されている名前
+・docker ps
+■表示されるコンテナが無いことを確認する
+■Dockerコンテナの詳細を表示させる
+・docker ps -a
+■Dockerコンテナを再起動させる
+・docker restart gallant_neumann
+■docker ps -a
+・ →STATUS欄を確認する
+■Dockerコンテナを再度停止させる
+・docker stop gallant_neumann
+■docker ps -a →STATUS欄を確認する
+■Dockerコンテナを削除する
+・docker rm gallant_neumann
+・docker ps -a 
+・→コンテナが削除されていることを確認
+※コンテナ名を複数指定して削除することも可能
+・docker rm sweet_cartwright pensive_cannon nervous_maxwell
+■Dockerコンテナに名前を付けて起動する
+・docker run -d -p 8000:5000 --name try-docker webapp-docker
+・docker ps -a 
+・→NAMES欄が「try-docker」になっていることを確認
+

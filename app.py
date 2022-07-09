@@ -3,13 +3,17 @@ from flask import request
 from flask import render_template
 from flask import jsonify
 from flask_sqlalchemy import SQLAlchemy
-from test_model import Person
+# from test_model import Person
+from mysql_model import Person
 from test_model import Human
 from sqlalchemy import or_
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test_db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test_db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:p%40ssw0rd1@localhost/test_mysql?charset=utf8mb4'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:p%40ssw0rd1@mysqldb/test_mysql?charset=utf8mb4'
+#パワーポイント40まで終わっている
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 

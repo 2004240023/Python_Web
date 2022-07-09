@@ -1,0 +1,46 @@
+# --Dockerイメージをビルドする
+
+(venv) root@605-14:~/Python_Web# docker build --tag webapp-docker .
+
+# ↓実行結果 #の中はコンソール状では青色
+
+[+] Building 2.1s (18/18) FINISHED
+
+#####################################################################################################
+
+ => [internal] load build definition from Dockerfile                                                               0.0s
+ => => transferring dockerfile: 362B                                                                               0.0s
+ => [internal] load .dockerignore                                                                                  0.0s
+ => => transferring context: 2B                                                                                    0.0s
+ => resolve image config for docker.io/docker/dockerfile:1                                                         0.9s
+ => CACHED docker-image://docker.io/docker/dockerfile:1@sha256:443aab4ca21183e069e7d8b2dc68006594f40bddf1b15bbd83  0.0s
+ => [internal] load build definition from Dockerfile                                                               0.0s
+ => [internal] load .dockerignore                                                                                  0.0s
+ => [internal] load metadata for docker.io/library/python:3.8-slim-buster                                          0.9s
+ => [1/9] FROM docker.io/library/python:3.8-slim-buster@sha256:65db770a0126c5f032de607b8b8ae7207ec2adc17420e54af4  0.0s
+ => [internal] load build context                                                                                  0.0s
+ => => transferring context: 709B                                                                                  0.0s
+ => CACHED [2/9] WORKDIR /app                                                                                      0.0s
+ => CACHED [3/9] COPY newrequirements.txt requirements.txt                                                         0.0s
+ => CACHED [4/9] RUN pip3 install -r requirements.txt                                                              0.0s
+ => CACHED [5/9] COPY static static                                                                                0.0s
+ => CACHED [6/9] COPY templates templates                                                                          0.0s
+ => CACHED [7/9] COPY app.py app.py                                                                                0.0s
+ => CACHED [8/9] COPY test_db test_db                                                                              0.0s
+ => CACHED [9/9] COPY test_model.py test_model.py                                                                  0.0s
+ => exporting to image                                                                                             0.0s
+ => => exporting layers                                                                                            0.0s
+ => => writing image sha256:4e853ce1c18472a9319020cc6af08ec6c5d346ec776f775bfad37cba34d21453                       0.0s
+ => => naming to docker.io/library/webapp-docker                                                                   0.0s
+
+#####################################################################################################
+
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+
+#--- 作成されたDockerイメージを確認する
+
+(venv) root@605-14:~/Python_Web# docker images
+REPOSITORY      TAG       IMAGE ID       CREATED          SIZE
+webapp-docker   latest    59d04425adc1   23 minutes ago   133MB
+
+#--- ↑先ほど作成したdockerイメージ→webapp-docker

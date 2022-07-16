@@ -1,0 +1,117 @@
+exit
+sudo su -
+passwd
+sudo su-
+sudo su -
+docker -v
+su cre
+exit
+docker -v
+docker -c
+docker -v
+cd Python_Web/
+python -m venv venv
+python3 -m venv venv
+source venv/bin/activate
+sudo apt -y update
+sudo apt -y upgrade python3 -V
+sudo apt -y upgrade python3 -pip
+sudo apt -y install python3 -pip
+sudo apt -y install pythone3-pip
+sudo apt -y install pythone3 -pip
+sudo apt -y install pythone3-venv
+sudo apt -y install pythone3-is-python
+sudo apt -y install pythone3-is-python3
+cd Python_Web/
+python -m venv venv
+source venv/bin/ativate
+source venv/bin/activate
+pip install -r requirements.txt
+sudo apt -y install pythone3-pip
+sudo apt -y install pythone3-is-python
+sudo apt -y upgrade python3 -V
+sudo apt -y install pythone3-venv
+ls -la
+git pull
+python3
+pip3
+pip
+apt install python3-pip
+apt install python3-venv
+apt install python-is-python3
+source venv/bin/activate
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements,txt
+pip install -r requirements.txt
+code .
+pip install -r requirements2.txt
+pip install -r requirements0625.txt
+pip freeze > newrequirements.txt
+docker bulid --tag webapp-docker .
+git add .
+git commit -m "commit"
+git push
+code .
+exit[; exit
+deactevate
+docker -v
+cd Python_Web/
+source /venv/bin/activate
+source venv/bin/activate
+deactivate
+source venv/bin/activate
+docker build --tag webapp-docker.
+docker build --tag webapp-docker .
+docker images
+docker run webapp-docker
+docker run --publish 8000:5000 webapp-docker
+pip install flask_sqlachemy
+pip install flask
+pip install flask_sqlachemy
+docker run --publish 8000:5000 webapp-docker
+docker images
+docker run --publish 8000:5000 webapp-docker
+docker images
+docker run webapp-docker
+vim requirements.txt
+vim newrequirements.txt
+code .
+docker build --tag webapp-docker .
+docker run webapp-docker
+vim app.py
+docker build --tag webapp-docker .
+docker run webapp-docker
+docker run --publish 8000:5000 webapp-docker
+curl 127.0.0.1:8000
+curl 127.0.0.1:5000
+
+docker run --publish 8000:5000 webapp-docker
+docker ps
+docker run --publish 8000:5000 webapp-docker
+docker stop gallant_neumann
+docker run --publish 8000:5000 webapp-docker
+docker stop gallant_neumann
+docker build --tag webapp-docker .
+docker images
+docker rmi webapp-docker:v1.0.0
+docker run --publish 8000:5000 webapp-docker
+docker run -d -p 8000:5000 webapp-docker
+docker ps
+docker stop gallant_neumann
+docker stop brave_lumiere
+docker ps
+docker ps -a
+docker restart brave_lumiere 
+docker ps -a
+docker ps
+docker stop brave_lumiere 
+docker ps -a
+docker rm brave_lumiere 
+docker ps -a
+docker image
+docker image ps
+docker ps
+docker run -d -p 8000:5000 --name try-docker webapp-docker
+docker ps -a
+history -w docker_manuak.txt

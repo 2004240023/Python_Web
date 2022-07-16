@@ -3,13 +3,17 @@ from flask import request
 from flask import render_template
 from flask import jsonify
 from flask_sqlalchemy import SQLAlchemy
-from test_model import Person
+# from test_model import Person
+from mysql_model import Person
 from test_model import Human
 from sqlalchemy import or_
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test_db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test_db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:p%40ssw0rd1@localhost/test_mysql?charset=utf8mb4'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:p%40ssw0rd1@mysqldb/test_mysql?charset=utf8mb4'
+#パワーポイント40まで終わっている
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -96,22 +100,22 @@ def human_result():
 # ここからWebアプリ２の演習の回答例
 
 
-@app.route('/human_search')
-def human_search():
-    return render_template('./human_search.html')
+#@app.route('/human_search')
+#def human_search():
+#    return render_template('./human_search.html')
 
 
-@app.route('/human_result')
-def human_result():
-    search_height = request.args.get('search_height')
-    search_weight = request.args.get('search_weight')
-    humans = db.session.query(Human).filter(
-        or_(Human.height >= search_height, Human.weight >= search_weight))
-    return render_template(
-        './human_result.html',
-        humans=humans,
-        search_height=search_height,
-        search_weight=search_weight)
+#@app.route('/human_result')
+#def human_result():
+#    search_height = request.args.get('search_height')
+#    search_weight = request.args.get('search_weight')
+#    humans = db.session.query(Human).filter(
+#        or_(Human.height >= search_height, Human.weight >= search_weight))
+#    return render_template(
+#        './human_result.html',
+#        humans=humans,
+#        search_height=search_height,
+#        search_weight=search_weight)
 
 # ここからWebアプリ3の演習の回答例
 
